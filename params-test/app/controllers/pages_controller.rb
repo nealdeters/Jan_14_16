@@ -2,7 +2,8 @@ class PagesController < ApplicationController
   def number
     @message = ""
 
-    #@random_num = rand(1..100)
+    #random_num = 23
+    #random_num = rand(1..100)
     random_num = session[:random] ||= rand(1..100)
     @number = params[:number]
     @number = @number.to_i
@@ -31,6 +32,14 @@ class PagesController < ApplicationController
   end
 
   def url_example
-    @message = params[:wildcard]
+    @message = params[:password]
+  end
+
+  def get_form
+
+  end
+
+  def submit_form
+    @message = params[:message]
   end
 end

@@ -1,4 +1,16 @@
 <h2>Guess a number between 1 and 100: </h2>
+
+<%= form_tag '/number', method: :get do %>
+  <div>
+    <%= label_tag :number %>
+    <%= text_field_tag :number %>
+  </div>
+
+  <div>
+    <%= submit_tag 'Submit Guess' %>
+  </div>
+<% end %>
+
 <h3>You guessed: <%= @number %></h3>
 
 <h3><%= @message %></h3>
