@@ -1,14 +1,9 @@
 class PagesController < ApplicationController
-  def home
-    # @name = params[:name].upcase
-
+  def number
     @message = ""
 
-    # if @name[0] == "A"
-    #   @message = "Hey, your name starts with the first letter of the alphabet!"
-    # end
-
-    @random_num = rand(1..100)
+    #@random_num = rand(1..100)
+    @random_num = session[:random] ||= rand(1..100)
     @number = params[:number]
     @number = @number.to_i
 
@@ -22,5 +17,15 @@ class PagesController < ApplicationController
       end
     end
 
+  end
+
+  def name
+    @name = params[:name].upcase
+
+    @message = ""
+
+    if @name[0] == "A"
+      @message = "Hey, your name starts with the first letter of the alphabet!"
+    end
   end
 end
